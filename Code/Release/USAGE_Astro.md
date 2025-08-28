@@ -1,6 +1,6 @@
 # Firmware end user instructions
 
-![](https://github.com/zebarnabe/DIGIduino/blob/5d0ffb245dc61649d6c953f2d44c33a56a0562d2/Media/TPW_astro_custom_firmware.png)
+![](https://raw.githubusercontent.com/zebarnabe/DIGIduino/refs/heads/astro/Media/TPW_astro_custom_firmware.png)
 
 The above image ilustrates the implemented firmware modes and views.
 The interface is very similar to the one present in Casio watches.
@@ -12,6 +12,8 @@ The top left button (red) is the **Set**/Reset/Split/View button.
 The bottom left button (green) is the **Mode**/Select button.
 The top right button (blue) is the **Up**/Detail/Wake button.
 The bottom right button (yellow) is the **Down**/Start/Stop button.
+
+Demo: [wokwi](https://wokwi.com/projects/440281421500083201)
 
 The **Up** will wake the watch if it goes to sleep.
 
