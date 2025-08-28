@@ -212,7 +212,8 @@ const byte weekDays[7][4] = {
 };
 
 float getDecimalCoord(int degs, int minutes, int seconds) {
-  float decimals = degs + minutes / 60 + seconds / 3600;
+  float absdegs = (degs > 0 ? degs : -degs);
+  float decimals = absdegs + (float)minutes / 60.0 + (float)seconds / 3600.0;
   if (decimals < 0) {
     return -decimals;
   }
@@ -297,7 +298,7 @@ void getSolarDates(
   float solarOffset = -7.659*sin(D) + 9.863*sin(2*D+3.5932);
 
   // fraction of the day
-  float solarNoon = (720-4*longitude-solarOffset+offset_minutes)/1440;
+  float solarNoon = (720 - 4*longitude - solarOffset + offset_minutes)/1440;
   float solarDeclination = asin(
     sin(-0.409105177) * 
     cos(2*PI*(yearFrac+0.027379257) + 0.0334 * sin(2*PI*(yearFrac-0.005475851)))
