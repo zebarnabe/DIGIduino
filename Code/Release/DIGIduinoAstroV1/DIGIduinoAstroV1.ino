@@ -721,7 +721,7 @@ void handleSetTimeMode() {
       if (setDay > maxDays) {
         setDay = maxDays;
       }
-      Rtc.SetDateTime(now);
+      Rtc.SetDateTime(RtcDateTime(setYear, setMonth, setDay, setHour, setMinute, now.Second()));
       readDateVars();
       dateFormat = setDateFormat;
       watchState = SHOW_TIME;
