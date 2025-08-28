@@ -1,6 +1,6 @@
 # Firmware end user instructions
 
-![](https://github.com/zebarnabe/DIGIduino/blob/373108a8b19a541aa368e73f8a72a8a27f05c600/Media/TPW_astro_custom_firmware.png)
+![](https://github.com/zebarnabe/DIGIduino/blob/5d0ffb245dc61649d6c953f2d44c33a56a0562d2/Media/TPW_astro_custom_firmware.png)
 
 The above image ilustrates the implemented firmware modes and views.
 The interface is very similar to the one present in Casio watches.
