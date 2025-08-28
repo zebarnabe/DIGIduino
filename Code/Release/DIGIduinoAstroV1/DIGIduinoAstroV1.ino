@@ -1496,9 +1496,9 @@ void handleSetLocaleMode() {
       segs[2] = digitsSegments[(int)(set_latitude.deg) % 10];
 
       if (set_latitude.positive) {
-        segs[3] = 0b01111001; // E
+        segs[3] = 0b00110111; // N
       } else {
-        segs[3] = 0b00111110; // W
+        segs[3] = 0b01101101; // S
       }
 
       if (setBlink) {
@@ -1547,9 +1547,9 @@ void handleSetLocaleMode() {
       segs[1] = digitsSegments[(int)(set_longitude.deg / 10) % 10];
       segs[2] = digitsSegments[(int)(set_longitude.deg) % 10];
       if (set_longitude.positive) {
-        segs[3] = 0b00110111; // N
+        segs[3] = 0b01111001; // E
       } else {
-        segs[3] = 0b01101101; // S
+        segs[3] = 0b00111110; // W
       }
       if (setBlink) {
          segs[0] = 0;
