@@ -211,13 +211,12 @@ const byte weekDays[7][4] = {
   { 0x2D, 0x77, 0x78, 0x00 }   // 6: SAturdAY = 0x2D 0x77 0x78 0x1C 0x50 0x5E 0x77 0x6E
 };
 
-float getDecimalCoord(int degs, int minutes, int seconds) {
-  float absdegs = (degs > 0 ? degs : -degs);
-  float decimals = absdegs + (float)minutes / 60.0 + (float)seconds / 3600.0;
-  if (decimals < 0) {
-    return -decimals;
+float getDecimalCoord(Coord coordinate) {
+  float decimals = coordinate.deg + (float)coordinate.minutes / 60.0 + (float)coordinate.seconds / 3600.0;
+  if (coordinate.positive) {
+    return decimals;
   }
-  return decimals;
+  return -decimals;
 }
 
 float toDegrees(float radians) {
@@ -1609,8 +1608,8 @@ void handleSunMode() {
       year,
       month,
       day,
-      getDecimalCoord(latitude.positive ? latitude.deg : -latitude.deg, latitude.minutes, latitude.seconds),
-      getDecimalCoord(longitude.positive ? longitude.deg : -longitude.deg, longitude.minutes, longitude.seconds),
+      getDecimalCoord(latitude),
+      getDecimalCoord(longitude),
       tz_offset_minutes,
       &noon,
       &sunrise,
