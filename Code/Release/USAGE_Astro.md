@@ -1,3 +1,12 @@
+# Changelog
+
+14 Sep 2025:
+* V1 was moon mode had a bug that could cause memory corruption.
+* V2 was released - it was completely re-written to be modular and although it is not perfect it should simplify the code organization.
+
+20 Aug 2025:
+* V1 initial release.
+
 # Firmware end user instructions
 
 ![](https://raw.githubusercontent.com/zebarnabe/DIGIduino/refs/heads/astro/Media/TPW_astro_custom_firmware.png)
@@ -37,6 +46,10 @@ Pressing **Mode** button will go back to Hour view.
 
 Holding **Set** button will enter Time setting mode.
 
+Holding **Up** button will increase brightness.[^1]
+
+Holding **Down** button will decrease brightness (down to 10%).[^1]
+
 ## Time Setting mode 🛠
 When entering this mode the display will briefly display `SEt `.
 
@@ -52,7 +65,7 @@ Pressing **Mode** will change the setting view:
 * Year → Display will show the year blinking
 * Format → Changes between day/month (`dYMo`) and month/day (`ModY`) in the dates displayed
 * Display Time → Display will show `SLP` followed by the number of seconds that the screen stays on before going to sleep, note that this change is applied immediately (cancelling by holding **Mode** will not revert this). The minimum value is 3 and the maximum is 9.
-* Brightness → Changes brightness between 25 and 100. (N.B.: This is not working)
+* Brightness → Changes brightness between 25 and 100. [^2]
 
 ## Chrono mode ⏱
 When entering this mode the display will briefly display `Chrn`.
@@ -64,7 +77,7 @@ Chrono mode has 3 states:
 * Running → Time is being counted.<br>**Set** button will go into Split state.<br>**Down** button will change to Stopped.
 * Split → Shows the time when entered the split. Time is still being counted in the background. Display will briefly blink `SPLt`.<br>**Set** button will go back to Running state.<br>**Down** button will change to Stopped.
 
-## Moon mode 🌙
+## Moon mode[^3] 🌙
 When entering this mode the display will briefly display `Moon`. It will keep blinking `Moon` while in the Phase view.
 
 Pressing **Up** or **Down** will change the view mode:
@@ -105,3 +118,9 @@ Pressing **Mode** will change the setting view:
 * Longitude Degrees → The degrees of Longitude of the user location, the value will be blinking be followed by a `W` (for negative longitudes) or a `E`.
 * Longitude Minutes → The minutes component of the Longitude of the user location, the value will be blinking be followed by a `'`.
 * Longitude Seconds → The seconds component of the Longitude of the user location, the value will be blinking be followed by a `"`.
+
+[^1]: Only in V2.
+[^2]: On V1 this was not working, values were constrained between 25% to 100%.
+  On V2 this is now working, values are constained between 10% and 100%
+[^3]: This mode had a bug in V1 that could cause corruption of memory.
+  As far as I could tell, no harm was done, but if you used the functions used here in your own firmware, be wary that some misbehaviour can occur. V1 was updated to fix this, however this was not thoroughly tested.

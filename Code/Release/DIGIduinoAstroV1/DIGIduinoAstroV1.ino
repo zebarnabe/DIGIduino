@@ -1113,13 +1113,14 @@ void handleChronoMode() {
 
 void handleMoonMode() {
   int dateDisplay;
-  byte moonPhase;
-  int new_year;
-  byte new_month;
-  byte new_day;
-  int full_year;
-  byte full_month;
-  byte full_day;
+
+  static byte moonPhase;
+  static int new_year;
+  static byte new_month;
+  static byte new_day;
+  static int full_year;
+  static byte full_month;
+  static byte full_day;
 
   uint8_t segs[MAXNUMDIGITS];
 
